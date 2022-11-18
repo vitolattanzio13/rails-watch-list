@@ -2,9 +2,11 @@
 
 <div class="btn btn-outline-light mb-2"><%= link_to "Create new list", new_list_path %></div>
 
-<div class="blockquote p-3">
+<div class="blockquote p-3 text-bg-dark p-3">
   <% @lists.each do |list| %>
     <p><%= list.name %></p>
-    <p class="btn btn-light"><%= link_to "Show this list", list %></p>
+    <p class="btn btn-light"><%= link_to "Show this list", list_path(list) %></p>
+    <p class="btn btn-light"><%= link_to "Delete list", list_path(list), data: {turbo_method: :delete, turbo_confirm: 'Are you sure?'} %></p>
   <% end %>
+
 </div>

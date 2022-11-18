@@ -17,5 +17,8 @@
 <div class="text-bg-dark p-3">
   <% @list.bookmarks.each do |bookmark| %>
     <p class="list-group"><%= bookmark.movie.title %></p>
+    <p class="list-group">--- <%= bookmark.comment %></p>
+    <p class="btn btn-light"><%= link_to "Delete bookmark", bookmark_path(bookmark), data: {turbo_method: :delete, turbo_confirm: 'Are you sure?'} %></p>
+
   <% end %>
 </div>
