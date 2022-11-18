@@ -5,6 +5,9 @@
 <div class="blockquote p-3 text-bg-dark p-3">
   <% @lists.each do |list| %>
     <p><%= list.name %></p>
+    <% if list.photo.present? %>
+      <%= cl_image_tag list.photo.key, height: 300, width: 400, crop: :fill %>
+    <% end %>
     <p class="btn btn-light"><%= link_to "Show this list", list_path(list) %></p>
     <p class="btn btn-light"><%= link_to "Delete list", list_path(list), data: {turbo_method: :delete, turbo_confirm: 'Are you sure?'} %></p>
   <% end %>
