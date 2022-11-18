@@ -1,0 +1,21 @@
+<h1 class="text-bg-primary p-3">Show page</h1>
+
+
+ <div class="text-bg-dark p-3">
+ <h2><%= @list.name %></h2>
+</div>
+
+<div style="padding: 10px;">
+<%= simple_form_for([@list, @bookmark]) do |f| %>
+  <%= f.input :comment %>
+  <%= f.association :movie %>
+  <%= f.submit %>
+<% end %>
+</div>
+
+
+<div class="text-bg-dark p-3">
+  <% @list.bookmarks.each do |bookmark| %>
+    <p class="list-group"><%= bookmark.movie.title %></p>
+  <% end %>
+</div>
